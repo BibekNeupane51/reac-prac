@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/reac-prac/static/css/main.54fe8f47.css",
+    "main.js": "/reac-prac/static/js/main.7a4a6630.js",
+    "index.html": "/reac-prac/index.html",
+    "static/media/user.svg": "/reac-prac/static/media/user.9fd9547f6f53286029f1cea1b2b28ffe.svg",
+    "main.54fe8f47.css.map": "/reac-prac/static/css/main.54fe8f47.css.map",
+    "main.7a4a6630.js.map": "/reac-prac/static/js/main.7a4a6630.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.54fe8f47.css",
+    "static/js/main.7a4a6630.js"
+  ]
+}
