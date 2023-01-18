@@ -22,7 +22,7 @@ const Login = () => {
     oldArr.map((userData) => {
       setUEmail(userData.email);
       if (emaillog == userData.email && passwordlog == userData.password) {
-        navigate("/dashboard");
+        navigate("/reac-prac/dashboard");
         console.log("success");
         toast.success(`Welcome ${userData.fname} ${userData.lname}`);
       }
@@ -30,7 +30,7 @@ const Login = () => {
   };
 
   const handleClick = () => {
-    navigate("/register");
+    navigate("/reac-prac/register");
   };
   return (
     <div className="login-main">

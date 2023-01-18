@@ -1,11 +1,14 @@
 import Login from "./pages/login/login";
 import SignUp from "./pages/register/signUp";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import { useEffect } from "react";
 import Dashboard from "./pages/dashboard/dashboard";
 import "react-toastify/dist/ReactToastify.css";
 import "./assets/css/style.css";
 function App() {
+  let navigate = useNavigate();
+
   return (
     <>
       <ToastContainer
