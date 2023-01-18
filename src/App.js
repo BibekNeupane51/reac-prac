@@ -20,10 +20,10 @@ function App() {
         pauseOnHover
       />
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<SignUp />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/reac-prac" element={<Login />} />
+        <Route path="/reac-prac/login" element={<Login />} />
+        <Route path="/reac-prac/register" element={<SignUp />} />
+        <Route path="/reac-prac/dashboard" element={<Dashboard />} />
       </Routes>
     </>
   );
