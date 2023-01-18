@@ -2,19 +2,28 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../../components/fixed-components/sidebar/sidebar";
 import Navbar from "../../components/fixed-components/navbar/navbar";
-const AddUser = () => {
+const EditUser = () => {
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const handleSubmit = () => {
+  const handleEdit = (e) => {
+    e.preventDefault();
     const user = JSON.parse(localStorage.getItem("user")) || [];
-    localStorage.setItem(
-      "user",
-      JSON.stringify([...user, { fname, lname, email, password }])
-    );
-    navigate("/reac-prac/dashboard");
+    // localStorage.setItem(
+    //   "user",
+    //   JSON.stringify([...user, { fname, lname, email, password }])
+    const _userList = user.map((user, userInIndex) => {
+      if (userInIndex == localStorage.getItem("editIndex")) {
+        return { fname, lname, email, password };
+      } else {
+        return user;
+      }
+    });
+
+    localStorage.setItem("user", JSON.stringify(_userList));
+    navigate("/reac-prac/dashboard/user");
   };
   return (
     <div className="d-board">
@@ -22,7 +31,9 @@ const AddUser = () => {
       <div className="nav-n-content">
         <Navbar></Navbar>
         <div className="content-body">
-          <h2>Add User</h2>
+          <div className="page-title get-user-pt">
+            <h1 className="dash-title">User List</h1>
+          </div>
           <form className="usergrp-form">
             <div className="uinp-section">
               <label htmlFor="" className="add-user-label">
@@ -36,9 +47,7 @@ const AddUser = () => {
               />
             </div>
             <div className="uinp-section">
-              <label htmlFor="" className="add-user-label">
-                Last Name
-              </label>
+              <label htmlFor="">Last Name</label>
               <input
                 type="text"
                 onChange={(e) => {
@@ -47,20 +56,16 @@ const AddUser = () => {
               />
             </div>
             <div className="uinp-section">
-              <label htmlFor="" className="add-user-label">
-                Email
-              </label>
+              <label htmlFor="">Email</label>
               <input
-                type="text"
+                type="email"
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
               />
             </div>
             <div className="uinp-section">
-              <label htmlFor="" className="add-user-label">
-                Password
-              </label>
+              <label htmlFor="">Password</label>
               <input
                 type="text"
                 onChange={(e) => {
@@ -68,7 +73,7 @@ const AddUser = () => {
                 }}
               />
             </div>
-            <button onClick={handleSubmit} className="u-button user-f-submit">
+            <button onClick={handleEdit} className="u-button user-f-submit">
               Submit
             </button>
           </form>
@@ -78,4 +83,4 @@ const AddUser = () => {
   );
 };
 
-export default AddUser;
+export default EditUser;

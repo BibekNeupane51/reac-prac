@@ -28,40 +28,36 @@ const routes = [
   {
     path: "/file-manager",
     name: "User Management",
-    icon: <i class="fa-solid fa-file"></i>,
+    icon: <i class="fa-solid fa-bars-progress"></i>,
     subRoutes: [
       {
-        path: "/createuser",
+        path: "/reac-prac/dashboard/add-user",
         name: "Create User ",
         icon: <i class="fa-solid fa-user"></i>,
       },
       {
-        path: "/createrole",
-        name: "Create Role",
-        icon: <i class="fa-solid fa-lock"></i>,
+        path: "/reac-prac/dashboard",
+        name: "View User",
+        icon: <i class="fa-solid fa-users-viewfinder"></i>,
       },
     ],
   },
   {
-    path: "/settings",
-    name: "Settings",
-    icon: <i class="fa-solid fa-book-user"></i>,
+    path: "/reac-prac/dashboard/products",
+    name: "Products",
+    icon: <i class="fa-solid fa-cart-arrow-down"></i>,
     exact: true,
     subRoutes: [
       {
-        path: "/client",
-        name: "Client ",
-        icon: <i class="fa-solid fa-user"></i>,
+        path: "/reac-prac/dashboard/products",
+        name: "Product List",
+        icon: <i class="fa-solid fa-list"></i>,
       },
+
       {
-        path: "/documentType",
-        name: "Document Type",
-        icon: <i class="fa-solid fa-lock"></i>,
-      },
-      {
-        path: "/kanban",
-        name: "Kanban",
-        icon: <i class="fa-solid fa-lock"></i>,
+        path: "/reac=prac/dashboard/add-product",
+        name: "Add Product",
+        icon: <i class="fa-solid fa-cart-plus"></i>,
       },
     ],
   },

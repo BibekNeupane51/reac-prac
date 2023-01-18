@@ -1,20 +1,16 @@
 import React, { useState } from "react";
 import userIcon from "../../../assets/image/user.svg";
-import { useNavigate, Link } from "react-router-dom";
-function Navbar(props) {
-  const [click, setclick] = useState(false);
+import { useNavigate } from "react-router-dom";
+function Navbar() {
   const [showhide, setshowhide] = useState(false);
   const navigate = useNavigate();
   const handleLogout = () => {
-    localStorage.clear();
-    navigate("/login");
+    navigate("/reac-prac/");
   };
   const handleclick = () => {
     setshowhide(!showhide);
   };
-  let cls = showhide
-    ? "fa-solid fa-caret-up fa-lg imgg"
-    : "fa-solid fa-caret-down fa-lg imgg";
+
   return (
     <div className="n-top-bar">
       <div className="n-topleft">
@@ -31,12 +27,17 @@ function Navbar(props) {
         </div>
       </div>
       <div className="n-nav-user">
-        <img src={userIcon} alt="" onClick={handleclick} />
+        <img
+          src={userIcon}
+          alt=""
+          onClick={handleclick}
+          className="user-nav-img user-nav-i-main"
+        />
         {showhide ? (
           <div className="user-nav-menu">
             <ul>
               <li>
-                <img src={userIcon} alt="" />
+                <img src={userIcon} alt="" className="user-nav-img" />
                 <div className="unm-prof-det">
                   <p>Bibek Neupane</p>
                   <p>bibekneupane@gmail.com</p>
@@ -47,7 +48,7 @@ function Navbar(props) {
               <li>Profile</li>
               <li>Personal settings</li>
 
-              <li>Log out</li>
+              <li onClick={handleLogout}>Log out</li>
             </ul>
           </div>
         ) : null}
