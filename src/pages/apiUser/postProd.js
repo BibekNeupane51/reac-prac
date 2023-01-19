@@ -3,6 +3,7 @@ import Sidebar from "../../components/fixed-components/sidebar/sidebar";
 import Navbar from "../../components/fixed-components/navbar/navbar";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 const PostProd = () => {
   const [prodName, setProdName] = useState("");
   const [prodCat, setProdCat] = useState("");
@@ -10,12 +11,17 @@ const PostProd = () => {
   const baseurl = "https://dummyjson.com/products/";
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post(`${baseurl}/add`, {
-      title: prodName,
-      category: prodCat,
-    });
-    console.log("user Added");
-    navigate("/reac-prac/dashboard/products");
+    if (!prodName || !prodCat) {
+      toast.error("Fill All Data");
+    } else {
+      axios.post(`${baseurl}/Add`, {
+        title: prodName,
+        category: prodCat,
+      });
+
+      toast.success("Successfully Added Product");
+      navigate("/reac-prac/dashboard/products");
+    }
   };
   return (
     <div className="d-board">

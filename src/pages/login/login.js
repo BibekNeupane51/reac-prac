@@ -12,14 +12,25 @@ const Login = () => {
 
     let olddata = localStorage.getItem("user");
     let oldArr = JSON.parse(olddata);
-    console.log(oldArr);
+    let ffname;
+    let llname;
+    let flag = true;
     oldArr.map((userData) => {
+      console.log(emaillog.length);
+
       if (emaillog == userData.email && passwordlog == userData.password) {
-        navigate("/reac-prac/dashboard");
-        console.log("success");
-        toast.success(`Welcome ${userData.fname} ${userData.lname}`);
+        flag = false;
+        ffname = userData.fname;
+        llname = userData.lname;
       }
     });
+
+    if (flag == false) {
+      navigate("/reac-prac/dashboard");
+      toast.success(`Welcome ${ffname} ${llname}`);
+    } else {
+      toast.error("Please Fill Correct Data");
+    }
   };
 
   const handleClick = () => {

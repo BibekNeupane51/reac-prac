@@ -2,19 +2,25 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../../components/fixed-components/sidebar/sidebar";
 import Navbar from "../../components/fixed-components/navbar/navbar";
+import { toast } from "react-toastify";
 const AddUser = () => {
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const handleSubmit = () => {
-    const user = JSON.parse(localStorage.getItem("user")) || [];
-    localStorage.setItem(
-      "user",
-      JSON.stringify([...user, { fname, lname, email, password }])
-    );
-    navigate("/reac-prac/dashboard");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!fname || !lname || !email || !password) {
+      toast.error("Please fill all information");
+    } else {
+      const user = JSON.parse(localStorage.getItem("user")) || [];
+      localStorage.setItem(
+        "user",
+        JSON.stringify([...user, { fname, lname, email, password }])
+      );
+      navigate("/reac-prac/dashboard");
+    }
   };
   return (
     <div className="d-board">

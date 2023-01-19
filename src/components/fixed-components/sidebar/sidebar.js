@@ -55,7 +55,7 @@ const routes = [
       },
 
       {
-        path: "/reac=prac/dashboard/add-product",
+        path: "/reac-prac/dashboard/add-product",
         name: "Add Product",
         icon: <i class="fa-solid fa-cart-plus"></i>,
       },

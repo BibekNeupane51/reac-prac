@@ -1,19 +1,18 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 const SignUp = () => {
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [flag, setFlag] = useState(false);
 
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!fname || !lname || !email || !password) {
-      setFlag(true);
+      toast.error("Please fill all information");
     } else {
-      setFlag(false);
       const user = JSON.parse(localStorage.getItem("user")) || [];
       localStorage.setItem(
         "user",
@@ -21,6 +20,7 @@ const SignUp = () => {
       );
       console.log("Saved  in local storage");
       navigate("/reac-prac/login");
+      toast.success("User Registered");
     }
   };
   return (
@@ -69,7 +69,6 @@ const SignUp = () => {
             <button class="button-login" type="submit">
               Sign Up
             </button>
-            {flag && <h1>Please Fill Every Thing</h1>}
           </form>
         </div>
       </div>
