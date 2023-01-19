@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Login from "../login/login";
 import { useNavigate } from "react-router-dom";
 const SignUp = () => {
   const [fname, setFname] = useState("");
@@ -7,7 +6,7 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [flag, setFlag] = useState(false);
-  const [login, setLogin] = useState(true);
+
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();

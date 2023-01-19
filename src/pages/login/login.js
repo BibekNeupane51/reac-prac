@@ -1,17 +1,11 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import Dashboard from "../dashboard/dashboard";
-import SignUp from "../register/signUp";
+
 const Login = () => {
   const [emaillog, setEmaillog] = useState("");
   const [passwordlog, setPasswordlog] = useState("");
 
-  const [dashboard, setDashboard] = useState(true);
-  const [flag, setFlag] = useState(false);
-  const [signUp, setSignUp] = useState(true);
-  const [uEmail, setUEmail] = useState("");
-  const [uPass, setUPass] = useState("");
   const navigate = useNavigate();
   const handleLogin = (e) => {
     e.preventDefault();
@@ -20,7 +14,6 @@ const Login = () => {
     let oldArr = JSON.parse(olddata);
     console.log(oldArr);
     oldArr.map((userData) => {
-      setUEmail(userData.email);
       if (emaillog == userData.email && passwordlog == userData.password) {
         navigate("/reac-prac/dashboard");
         console.log("success");
@@ -75,7 +68,6 @@ const Login = () => {
             <button class="button-register" onClick={handleClick}>
               Register
             </button>
-            {flag && <h1>Please Fill Every Thing</h1>}
           </form>
         </div>
         <div class="login-container2">

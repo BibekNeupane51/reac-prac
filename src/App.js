@@ -8,6 +8,9 @@ import GetUser from "./pages/localUser/getUser";
 import AddUser from "./pages/localUser/addUser";
 import EditUser from "./pages/localUser/editUser";
 import GetAllProd from "./pages/apiUser/getAllProd";
+import ViewProd from "./pages/apiUser/viewProd";
+import PostProd from "./pages/apiUser/postProd";
+import EditProd from "./pages/apiUser/editProd";
 import "react-toastify/dist/ReactToastify.css";
 import "./assets/css/style.css";
 function App() {
@@ -35,6 +38,18 @@ function App() {
         <Route path="/reac-prac/dashboard/add-user" element={<AddUser />} />
         <Route path="/reac-prac/dashboard/edit-user" element={<EditUser />} />
         <Route path="/reac-prac/dashboard/products" element={<GetAllProd />} />
+        <Route
+          path="/reac-prac/dashboard/view-product"
+          element={<ViewProd />}
+        ></Route>
+        <Route
+          path="/reac-prac/dashboard/add-product"
+          element={<PostProd />}
+        ></Route>
+        <Route
+          path="/reac-prac/dashboard/edit-product"
+          element={<EditProd />}
+        ></Route>
       </Routes>
     </div>
   );

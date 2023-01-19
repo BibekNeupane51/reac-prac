@@ -6,7 +6,7 @@ import SidebarMenu from "./sidebarMenu";
 
 const routes = [
   {
-    path: "/dashboard",
+    path: "/reac-prac/dashboard",
     name: "Dashboard",
     icon: <i class="fa-solid fa-gauge"></i>,
   },

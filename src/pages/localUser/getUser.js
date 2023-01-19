@@ -24,6 +24,9 @@ const GetUser = () => {
   };
   const editUser = (userViewIndex) => {
     localStorage.setItem("editIndex", userViewIndex);
+    localStorage.setItem("fname", userList[userViewIndex].fname);
+    localStorage.setItem("lname", userList[userViewIndex].lname);
+    localStorage.setItem("email", userList[userViewIndex].email);
     navigate("/reac-prac/dashboard/edit-user");
   };
 
@@ -53,7 +56,7 @@ const GetUser = () => {
   return (
     <div className="content-body">
       <div className="page-title get-user-pt">
-        <h1 className="dash-title">User List</h1>
+        <h1 className="">User List</h1>
         <button className="u-button add-btn" onClick={addUser}>
           Add
         </button>

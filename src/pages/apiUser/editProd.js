@@ -1,22 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Sidebar from "../../components/fixed-components/sidebar/sidebar";
 import Navbar from "../../components/fixed-components/navbar/navbar";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-const PostProd = () => {
+import { toast } from "react-toastify";
+const EditProd = () => {
   const [prodName, setProdName] = useState("");
   const [prodCat, setProdCat] = useState("");
-  const navigate = useNavigate();
+  const [prodID, setProdID] = useState(null);
   const baseurl = "https://dummyjson.com/products/";
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post(`${baseurl}/add`, {
+    axios.put(`${baseurl}/${prodID}`, {
       title: prodName,
       category: prodCat,
     });
-    console.log("user Added");
+    console.log("updated");
     navigate("/reac-prac/dashboard/products");
+    toast.success(`Updated User`);
   };
+  useEffect(() => {
+    setProdName(localStorage.getItem("title"));
+    setProdCat(localStorage.getItem("category"));
+    setProdID(localStorage.getItem("prodID"));
+  }, []);
   return (
     <div className="d-board">
       <Sidebar></Sidebar>
@@ -30,6 +38,7 @@ const PostProd = () => {
                 Product Name
               </label>
               <input
+                value={prodName}
                 type="text"
                 onChange={(e) => {
                   setProdName(e.target.value);
@@ -41,6 +50,7 @@ const PostProd = () => {
                 Product Category
               </label>
               <input
+                value={prodCat}
                 type="text"
                 onChange={(e) => {
                   setProdCat(e.target.value);
@@ -49,7 +59,7 @@ const PostProd = () => {
             </div>
 
             <button onClick={handleSubmit} className="u-button user-f-submit">
-              Submit
+              Update
             </button>
           </form>
         </div>
@@ -58,4 +68,4 @@ const PostProd = () => {
   );
 };
 
-export default PostProd;
+export default EditProd;

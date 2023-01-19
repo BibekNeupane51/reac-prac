@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../../components/fixed-components/sidebar/sidebar";
 import Navbar from "../../components/fixed-components/navbar/navbar";
@@ -8,6 +8,7 @@ const EditUser = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
   const handleEdit = (e) => {
     e.preventDefault();
     const user = JSON.parse(localStorage.getItem("user")) || [];
@@ -21,10 +22,14 @@ const EditUser = () => {
         return user;
       }
     });
-
     localStorage.setItem("user", JSON.stringify(_userList));
-    navigate("/reac-prac/dashboard/user");
+    navigate("/reac-prac/dashboard");
   };
+  useEffect(() => {
+    setFname(localStorage.getItem("fname"));
+    setLname(localStorage.getItem("lname"));
+    setEmail(localStorage.getItem("email"));
+  }, []);
   return (
     <div className="d-board">
       <Sidebar></Sidebar>
@@ -40,6 +45,7 @@ const EditUser = () => {
                 First Name
               </label>
               <input
+                value={fname}
                 type="text"
                 onChange={(e) => {
                   setFname(e.target.value);
@@ -49,6 +55,7 @@ const EditUser = () => {
             <div className="uinp-section">
               <label htmlFor="">Last Name</label>
               <input
+                value={lname}
                 type="text"
                 onChange={(e) => {
                   setLname(e.target.value);
@@ -58,6 +65,7 @@ const EditUser = () => {
             <div className="uinp-section">
               <label htmlFor="">Email</label>
               <input
+                value={email}
                 type="email"
                 onChange={(e) => {
                   setEmail(e.target.value);
@@ -67,6 +75,7 @@ const EditUser = () => {
             <div className="uinp-section">
               <label htmlFor="">Password</label>
               <input
+                value={password}
                 type="text"
                 onChange={(e) => {
                   setPassword(e.target.value);
@@ -74,7 +83,7 @@ const EditUser = () => {
               />
             </div>
             <button onClick={handleEdit} className="u-button user-f-submit">
-              Submit
+              Update
             </button>
           </form>
         </div>
