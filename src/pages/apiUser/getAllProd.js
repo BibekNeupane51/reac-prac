@@ -61,7 +61,7 @@ const GetAllProd = () => {
           >
             Delete
           </button>
-          <button className="eye-button" onClick={data.id}>
+          <button className="eye-button" onClick={viewProd}>
             <i class="fa-solid fa-eye"></i>
           </button>
         </td>
