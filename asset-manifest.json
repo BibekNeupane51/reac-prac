@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/reac-prac/static/css/main.97d3b0d8.css",
-    "main.js": "/reac-prac/static/js/main.0e947257.js",
+    "main.js": "/reac-prac/static/js/main.6d65a048.js",
     "index.html": "/reac-prac/index.html",
     "static/media/user.svg": "/reac-prac/static/media/user.9fd9547f6f53286029f1cea1b2b28ffe.svg",
     "main.97d3b0d8.css.map": "/reac-prac/static/css/main.97d3b0d8.css.map",
-    "main.0e947257.js.map": "/reac-prac/static/js/main.0e947257.js.map"
+    "main.6d65a048.js.map": "/reac-prac/static/js/main.6d65a048.js.map"
   },
   "entrypoints": [
     "static/css/main.97d3b0d8.css",
-    "static/js/main.0e947257.js"
+    "static/js/main.6d65a048.js"
   ]
 }
